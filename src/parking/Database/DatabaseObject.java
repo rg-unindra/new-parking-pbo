@@ -5,16 +5,10 @@
  */
 package parking.database;
 
-import java.util.List;
-
 /**
  *
  * @author Farhan Fadila
  */
-public interface DatabaseMethod<T> {
-    T get(String id);
-    List<T> getList();
-    
-    void create(T object);
-    void delete(String id);
+public interface DatabaseObject {
+    String toStringObject();
 }

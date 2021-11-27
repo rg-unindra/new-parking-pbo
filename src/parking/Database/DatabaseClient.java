@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package parking.Database;
+package parking.database;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -22,6 +22,7 @@ public abstract class DatabaseClient {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, "root", "");
+            createStatement();
         } catch(ClassNotFoundException | SQLException ex) {
             System.out.println("DATABASE ERROR" + ex);
         }
@@ -46,6 +47,27 @@ public abstract class DatabaseClient {
         
        return rs;
     }
+    
+       
+    public void executeQuery2(String query) {
+     
+       if(statement == null) {
+           try {
+               createStatement();
+               
+           } catch (SQLException ex) {
+               Logger.getLogger(DatabaseClient.class.getName()).log(Level.SEVERE, null, ex);
+           }
+       }
+       
+        try {
+            statement.execute(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
     
     private void createStatement() throws SQLException {
         if(con == null) {

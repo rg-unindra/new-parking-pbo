@@ -5,18 +5,30 @@
  */
 package parking.petugas;
 
+import parking.database.DatabaseObject;
+
 /**
  *
  * @author Farhan Fadila
  */
-public class Petugas {
+public class Petugas implements DatabaseObject {
     String id;
     String nama;
     String shift;
     
-    Petugas(String id, String nama, String shift) {
+    public Petugas(String id, String nama, String shift) {
        this.id = id;
        this.nama = nama;
        this.shift = shift;
+    }
+
+    @Override
+    public String toStringObject() {
+       return "('"+ nama  + "','" + shift + "')";
+    }
+    
+    @Override
+    public String toString() {
+       return nama + "\t" + shift;
     }
 }

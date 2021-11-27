@@ -12,8 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import parking.Database.DatabaseClient;
-import parking.Database.DatabaseMethod;
+import parking.database.DatabaseClient;
+import parking.database.DatabaseMethod;
 import parking.petugas.Petugas;
 /**
  *
@@ -62,13 +62,14 @@ public class PetugasClient extends DatabaseClient implements DatabaseMethod<Petu
 
     @Override
     public void create(Petugas petugas) {
-        executeQuery("INSERT INTO " + tableName + " (nama_pegawai, shift) VALUES (" + petugas.nama + ", " + petugas.shift + ")" );
+        String query = "INSERT INTO petugas (nama_pegawai, shift) VALUES " + petugas.toStringObject();
+        executeQuery2(query);
         System.out.println("DATA PETUGAS BERHASIL DITAMBAHKAN");
     }
 
     @Override
     public void delete(String id) {
-         executeQuery("DELETE FROM " + tableName + " WHERE kode_pegawai = " + id);
+         executeQuery2("DELETE FROM " + tableName + " WHERE kode_pegawai = " + id);
     }
 
 }
