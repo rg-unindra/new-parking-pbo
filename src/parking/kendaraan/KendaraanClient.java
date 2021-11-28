@@ -35,7 +35,9 @@ public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Ke
         ResultSet result = executeQuery("SELECT * FROM " + tableName + " WHERE kode_jenis = " + id);
 
         try {
-          temp = new Kendaraan(result.getString(0), result.getString(1), result.getString(2));
+          if(result.next()) {
+              temp = new Kendaraan(result.getString(1), result.getString(2), result.getInt(3));
+          }
         } catch (SQLException ex) {
            Logger.getLogger(KendaraanClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -51,7 +53,7 @@ public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Ke
 
         try {
             while(result.next()) {
-               temp.add(new Kendaraan(result.getString(1), result.getString(2), result.getString(3)));
+               temp.add(new Kendaraan(result.getString(1), result.getString(2), result.getInt(3)));
             }
         } catch (SQLException ex) {
            Logger.getLogger(KendaraanClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -70,6 +72,11 @@ public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Ke
     @Override
     public void delete(String id) {
          executeQuery2("DELETE FROM " + tableName + " WHERE kode_jenis = " + id);
+    }
+
+    @Override
+    public List<Kendaraan> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

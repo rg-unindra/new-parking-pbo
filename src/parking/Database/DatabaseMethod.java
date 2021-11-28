@@ -14,6 +14,7 @@ import java.util.List;
 public interface DatabaseMethod<T> {
     T get(String id);
     List<T> getList();
+    List<T> getAll();
     
     void create(T object);
     void delete(String id);

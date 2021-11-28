@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import parking.database.DatabaseClient;
 import parking.database.DatabaseMethod;
-import parking.petugas.Petugas;
 /**
  *
  * @author Farhan Fadila
@@ -32,10 +31,12 @@ public class PetugasClient extends DatabaseClient implements DatabaseMethod<Petu
     @Override
     public Petugas get(String id) {
         Petugas temp = null;
-        ResultSet result = executeQuery("SELECT * FROM " + tableName + " WHERE kode_pegawai = " + id);
+        ResultSet result = executeQuery("SELECT * FROM " + tableName + " WHERE kode_petugas = " + id);
 
         try {
-          temp = new Petugas(result.getString(0), result.getString(1), result.getString(2));
+            if(result.next()) {
+                  temp = new Petugas(result.getString(1), result.getString(2), result.getString(3));
+            }
         } catch (SQLException ex) {
            Logger.getLogger(PetugasClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -69,7 +70,13 @@ public class PetugasClient extends DatabaseClient implements DatabaseMethod<Petu
 
     @Override
     public void delete(String id) {
-         executeQuery2("DELETE FROM " + tableName + " WHERE kode_pegawai = " + id);
+         executeQuery2("DELETE FROM " + tableName + " WHERE kode_petugas = " + id);
+         System.out.println("DATA PETUGAS BERHASIL DIHAPUS");
+    }
+
+    @Override
+    public List<Petugas> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -33,7 +33,6 @@ public abstract class DatabaseClient {
        if(statement == null) {
            try {
                createStatement();
-               
            } catch (SQLException ex) {
                Logger.getLogger(DatabaseClient.class.getName()).log(Level.SEVERE, null, ex);
            }
@@ -49,19 +48,17 @@ public abstract class DatabaseClient {
     }
     
        
-    public void executeQuery2(String query) {
-     
+    public void  executeQuery2(String query) {
        if(statement == null) {
            try {
                createStatement();
-               
            } catch (SQLException ex) {
                Logger.getLogger(DatabaseClient.class.getName()).log(Level.SEVERE, null, ex);
            }
        }
        
         try {
-            statement.execute(query);
+               statement.execute(query);
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseClient.class.getName()).log(Level.SEVERE, null, ex);
         }

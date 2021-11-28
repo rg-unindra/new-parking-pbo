@@ -40,4 +40,9 @@ public class PetugasController implements DatabaseMethod<Petugas> {
     public void delete(String id) {
        petugasClient.delete(id);
     }
+
+    @Override
+    public List<Petugas> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

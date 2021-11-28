@@ -40,4 +40,9 @@ public class KendaraanController implements DatabaseMethod<Kendaraan> {
     public void delete(String id) {
        kendaraanClient.delete(id);
     }
+
+    @Override
+    public List<Kendaraan> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
