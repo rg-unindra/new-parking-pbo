@@ -5,6 +5,7 @@
 * Petugas
 * Parkir
 * Kendaraan
+* Kendaraan2
 
 ---
 
