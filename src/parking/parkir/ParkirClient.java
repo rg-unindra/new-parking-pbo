@@ -14,10 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import parking.database.DatabaseClient;
 import parking.database.DatabaseMethod;
-import parking.parkir.Parkir;
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public class ParkirClient extends DatabaseClient implements DatabaseMethod<Parkir> {
     
@@ -30,7 +29,7 @@ public class ParkirClient extends DatabaseClient implements DatabaseMethod<Parki
     }
 
     public Parkir keluarParkir(Parkir parkir) {
-        String query = "UPDATE " + tableName + " SET " + parkir.keluarParkirObject() + " WHERE kode_parkir = " + parkir.id;
+        String query = "UPDATE " + tableName + " SET " + parkir.toKeluarParkirObject() + " WHERE kode_parkir = " + parkir.id;
         executeQuery2(query);
         return get(parkir.id);
     }
@@ -43,7 +42,6 @@ public class ParkirClient extends DatabaseClient implements DatabaseMethod<Parki
         try {
            if(result.next()) {
                 temp = new Parkir(result.getString(1), result.getLong(2), result.getLong(3), result.getString(4), result.getString(5), result.getString(6), result.getString(7));
- 
            }
          } catch (SQLException ex) {
            Logger.getLogger(ParkirClient.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,7 +81,7 @@ public class ParkirClient extends DatabaseClient implements DatabaseMethod<Parki
 
     @Override
     public List<Parkir> getAll() {
-         List<Parkir> temp = new ArrayList<>();
+        List<Parkir> temp = new ArrayList<>();
         
         ResultSet result = executeQuery("SELECT * FROM " + tableName);
 

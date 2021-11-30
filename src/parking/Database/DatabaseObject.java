@@ -7,7 +7,7 @@ package parking.database;
 
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public interface DatabaseObject {
     String toStringObject();

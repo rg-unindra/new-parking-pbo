@@ -12,7 +12,7 @@ import parking.utils.Utils;
 
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public class Kendaraan implements DatabaseObject {
     public String id;

@@ -14,10 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import parking.database.DatabaseClient;
 import parking.database.DatabaseMethod;
-import parking.kendaraan.Kendaraan;
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Kendaraan> {
     
@@ -32,7 +31,7 @@ public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Ke
     @Override
     public Kendaraan get(String id) {
         Kendaraan temp = null;
-        ResultSet result = executeQuery("SELECT * FROM " + tableName + " WHERE kode_jenis = " + id);
+        ResultSet result =  executeQuery("SELECT * FROM " + tableName + " WHERE kode_jenis = " + id);
 
         try {
           if(result.next()) {
@@ -55,6 +54,7 @@ public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Ke
             while(result.next()) {
                temp.add(new Kendaraan(result.getString(1), result.getString(2), result.getInt(3)));
             }
+            
         } catch (SQLException ex) {
            Logger.getLogger(KendaraanClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -64,7 +64,7 @@ public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Ke
 
     @Override
     public void create(Kendaraan kendaraan) {
-        String query = "INSERT INTO  " + tableName + " (nama_jenis, tarif) VALUES " + kendaraan.toStringObject();
+        String query = "INSERT INTO  " + tableName + " (nama_jenis, tarif) VALUES "  + kendaraan.toStringObject();
         executeQuery2(query);
         System.out.println("DATA BERHASIL DITAMBAHKAN");
     }
@@ -78,5 +78,4 @@ public class KendaraanClient extends DatabaseClient implements DatabaseMethod<Ke
     public List<Kendaraan> getAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

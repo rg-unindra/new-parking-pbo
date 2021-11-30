@@ -13,7 +13,7 @@ import parking.petugas.PetugasController;
 import parking.petugas.Petugas;
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public class Parking {
 
@@ -43,7 +43,7 @@ public class Parking {
         
         System.out.println("===================");
         System.out.print("Masukkan Pilihan: ");
-         pilihan = input.nextInt();
+        pilihan = input.nextInt();
         
         if(pilihan > daftarPetugas.size() + 1) {
           crash();

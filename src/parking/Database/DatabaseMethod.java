@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public interface DatabaseMethod<T> {
     T get(String id);

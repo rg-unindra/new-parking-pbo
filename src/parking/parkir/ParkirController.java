@@ -9,7 +9,7 @@ import java.util.List;
 import parking.database.DatabaseMethod;
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public class ParkirController implements DatabaseMethod<Parkir> {
     

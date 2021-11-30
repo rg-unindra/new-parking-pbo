@@ -5,6 +5,7 @@
  */
 package parking.parkir;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,7 +21,7 @@ import parking.utils.Utils;
 
 /**
  *
- * @author Farhan Fadila
+ * @author Parkir
  */
 public class Parkir implements DatabaseObject {
     public String id;
@@ -49,7 +50,7 @@ public class Parkir implements DatabaseObject {
     }
     
     public void item(int index, boolean withTanggalKeluar) {
-        String additionalInfo =   withTanggalKeluar == true ?  " | Tanggal Keluar" + df.format(convertToDate(tanggalMasuk)) : "";
+        String additionalInfo = withTanggalKeluar ?  " | Tanggal Keluar " + df.format(convertToDate(tanggalMasuk)) : "";
         System.out.println(index + ". " + platNomor + " | Tanggal Masuk " + df.format(convertToDate(tanggalMasuk)) + additionalInfo);
     }
     
@@ -74,7 +75,6 @@ public class Parkir implements DatabaseObject {
                platNomor = input.nextLine();
                System.out.println("= Pilih Jenis Kendaraan = ");
                idJenis = kendaraan.pilihKendaraan().id;
-               System.out.print(idPetugasMasuk);
                tanggalMasuk = timeNow();
                parkirController.create(this);
             break;
@@ -82,10 +82,9 @@ public class Parkir implements DatabaseObject {
                System.out.println("== Keluar Parkir ==");
                Parkir parkir = pilihDaftarParkir();
                 if(parkir != null) {
-                    parkir = parkirController.keluarParkir(parkir);
+                   parkir = parkirController.keluarParkir(parkir);
                    cetakStruk(parkir);
                 }
-                
             break;
             case 3:
               lihatDaftarParkir();
@@ -175,7 +174,7 @@ public class Parkir implements DatabaseObject {
       return "("+ temp  + ",'" + platNomor  + "','" + idPetugasMasuk + "','" + idJenis + "')";
     }
 
-    public String keluarParkirObject() {
+    public String toKeluarParkirObject() {
       long temp = timeNow();
       return "tanggal_keluar = " + temp + ", kode_petugas_keluar = '" + idPetugasKeluar + "' ";
     }
@@ -190,7 +189,7 @@ public class Parkir implements DatabaseObject {
             String currentTime = crunchifyFormat.format(today);
             Date date = crunchifyFormat.parse(currentTime);
             return date.getTime();
-       } catch(Exception e) {
+       } catch(ParseException e) {
             System.out.println(e);
        }
        return 0;
@@ -199,12 +198,5 @@ public class Parkir implements DatabaseObject {
     @Override
     public String toStringObject() {
        return "('"+ tanggalMasuk  + "','" + tanggalKeluar + "')";
-    }
-
-    
-    
-    @Override
-    public String toString() {
-       return tanggalMasuk + "\t" + tanggalKeluar;
     }
 }

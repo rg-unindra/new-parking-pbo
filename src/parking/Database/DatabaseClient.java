@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public abstract class DatabaseClient {
     final String databaseName = "parking";
@@ -21,6 +21,7 @@ public abstract class DatabaseClient {
     public void start() {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
+            // INISIALISASI CONNECTION
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + databaseName, "root", "");
             createStatement();
         } catch(ClassNotFoundException | SQLException ex) {
@@ -58,7 +59,7 @@ public abstract class DatabaseClient {
        }
        
         try {
-               statement.execute(query);
+            statement.execute(query);
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseClient.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -71,6 +72,7 @@ public abstract class DatabaseClient {
             start();
         }
         
+        // INISIALISASI STATEMENT
         statement = con.createStatement();
     }
 }

@@ -16,7 +16,7 @@ import parking.database.DatabaseClient;
 import parking.database.DatabaseMethod;
 /**
  *
- * @author Farhan Fadila
+ * @author Parking
  */
 public class PetugasClient extends DatabaseClient implements DatabaseMethod<Petugas> {
     
