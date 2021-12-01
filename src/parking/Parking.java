@@ -80,5 +80,6 @@ public class Parking {
             System.out.print("pilihan [y/n] : ");
             ulang = input.nextLine();
        } while(ulang.equalsIgnoreCase("y"));
+        System.out.println("\nProgram Selesai");
     }
 }
