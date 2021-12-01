@@ -1,26 +1,37 @@
 # Parking
 ---
+## How to use
+* Crate database parking in your localhost machine
+* import database file from directory db/parking.sql
+* Open netbeans
+* Run ✅
+---
 ## Class
-* Parking
+* Parking (Main Class)
 * Petugas
-* Parkir
+* PetugasClient
+* PetugasController
+* ParkirClient
+* ParkirController
 * Kendaraan
-* Kendaraan2
+* KendaraanClient
+* KendaraanController
+* Utils
 
 ---
 
-### 🚧 Maintener 
-[![account avatar][]][github account] <br>
-**Farhan Fadila** <br>
-📫 How to reach me: farhan.fadila1717@gmail.com
+### 👾 Our Team
+| [![farhan avatar][]][farhan account]|[![qemal avatar][]][jawir account]|[![alip avatar][]][alip account]|[![qemal avatar][]][oji account]|[![qemal avatar][]][qemal account]|
+| :-----: |:-----: |:-----: |:-----: |:-----: |
+|   **Farhan**  |**Jawir**|**Alif**|**Oji**|**Qemal**|
 
-### ❤️ Suport Maintener
-[![badge paypal][]][paypal account] [![badge linktree][]][linktree account]
-
-
-[account avatar]: https://avatars.githubusercontent.com/u/43161050?s=80
-[github account]: https://github.com/farhanfadila1717
-[badge linktree]: https://img.shields.io/badge/Donate-farhanfadila-orange
-[linktree account]: https://linktr.ee/farhanfadila
-[badge paypal]: https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal
-[paypal account]: https://www.paypal.me/farhanfadila1717
+[farhan avatar]: https://avatars.githubusercontent.com/u/43161050?s=80
+[farhan account]: https://github.com/farhanfadila1717
+[jawir avatar]: https://avatars.githubusercontent.com/u/90750588?s=80
+[jawir account]: https://github.com/rskystwn
+[alip avatar]: https://avatars.githubusercontent.com/u/76543130?s=80
+[alip account]: https://github.com/GeezCre
+[oji avatar]: https://avatars.githubusercontent.com/u/90750376?s=80
+[oji account]: https://github.com/Rizky0606
+[qemal avatar]: https://avatars.githubusercontent.com/u/90755886?s=80
+[qemal account]: https://github.com/Qemsky
